@@ -108,7 +108,7 @@ app.get(spec_paths, async (req, res) => {
         if (query.rows.length === 1) {
             res.json(query.rows[0])
         }
-        if (query.rows.length > 1) {
+        else if (query.rows.length > 1) {
             res.json(query.rows)
         }
         else {
@@ -151,11 +151,9 @@ app.put(spec_paths, async (req, res) => {
         reqArray.length = reqParamCount
         reqArray[reqArray.length - 1] = id
 
-        // console.log(put_req_queries[i], reqArray)
-
         const query = await pool.query(put_req_queries[i], reqArray)
 
-        res.json("Insumo atualizado.")
+        res.json("Item atualizado.")
     } catch (err) {
         console.error(err.message);
     }
@@ -163,7 +161,7 @@ app.put(spec_paths, async (req, res) => {
 })
 
 
-// deletar insumo
+// deletar específico
 app.delete(spec_paths, async (req, res) => {
     try {
         match = req.path.split('/')[1]
@@ -172,7 +170,7 @@ app.delete(spec_paths, async (req, res) => {
 
         const query = await pool.query(delete_req_queries[i], [id]);
 
-        res.json("Insumo deletado.")
+        res.json("Item deletado.")
     } catch (err) {
         console.error(err.message);
     }
