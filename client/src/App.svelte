@@ -1,17 +1,18 @@
 <script>
   import Router from "svelte-spa-router";
-  import Datagrid from "./Datagrid.svelte";
+  import Navbar from "./Components/Navbar.svelte";
+ // Routes ------------------------------
+  import Home from "./Routes/Home.svelte";
+  import Insumos from "./Routes/Insumos.svelte";
+  import Produtos from "./Routes/Produtos.svelte";
+  import Compras from "./Routes/Compras.svelte";
+  import Lotes from "./Routes/Lotes.svelte";
+  import Vendas from "./Routes/Vendas.svelte";
+  import EstoquesInsumos from "./Routes/EstoquesInsumos.svelte";
+  import EstoquesProdutos from "./Routes/EstoquesProdutos.svelte";
 </script>
 
-<nav>
-	<a href="/#/">Home</a>
-	<a href="/#/insumos">Insumos</a>
-	<a href="/#/produtos">Produtos</a>
-	<a href="/#/compras">Compras</a>
-	<a href="/#/lotes">Lotes</a>
-	<a href="/#/vendas">Vendas</a>
-	<a href="/#/estoques">Estoques</a>
-</nav>
+<Navbar/>
 
 <Router
   routes={{
@@ -21,6 +22,7 @@
 	'/compras': Compras,
 	'/lotes': Lotes,
 	'/vendas': Vendas,
-	'/estoques': Estoques
+	'/estoquesinsumos': EstoquesInsumos,
+	'/estoquesprodutos': EstoquesProdutos
   }}
 />
